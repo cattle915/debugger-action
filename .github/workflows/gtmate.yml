@@ -21,4 +21,4 @@ jobs:
 
    
     - name: Setup Debug Session
-      uses: csexton/debugger-action@maste
+      uses: csexton/debugger-action@master
