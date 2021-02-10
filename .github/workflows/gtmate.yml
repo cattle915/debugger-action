@@ -14,7 +14,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
-
+    container:
+      image: alpine/git:latest
+      options: --dns 127.0.0.1
+    services:
+      squid-proxy:
+        image: datadog/squid:latest
+        ports:
+          - 3128:3128
+    env:
+      https_proxy: http://squid-proxy:3128
     steps:
     - name: Checkout
       uses: actions/checkout@main
